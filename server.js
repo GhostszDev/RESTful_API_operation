@@ -3,8 +3,10 @@ const expressApp = express();
 const fs = require("fs");
 const path = require("path");
 const axios = require('axios');
+const cors = require("cors");
 
 //set defaults
+expressApp.use(cors);
 expressApp.set('json spaces', 2);
 
 expressApp.get("/api/getUsers", function(request, response){
