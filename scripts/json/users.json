@@ -1,0 +1,35 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "firstName": "Steven",
+      "lastName": "Rivera",
+      "DOB": "DEC 28, 1990"
+    },
+    {
+      "id": 2,
+      "firstName": "Jeff",
+      "lastName": "Bezos",
+      "DOB": "JAN 12, 1964"
+    },
+    {
+      "id": 3,
+      "firstName": "Elon",
+      "lastName": "Musk",
+      "DOB": "JUN 28, 1971"
+    },
+    {
+      "id": 4,
+      "firstName": "Tim",
+      "lastName": "Cook",
+      "DOB": "NOV 1, 1960"
+    },
+    {
+      "id": 5,
+      "firstName": "Bill",
+      "lastName": "Gates",
+      "DOB": "OCT 28, 1955"
+    }
+  ]
+
+}
