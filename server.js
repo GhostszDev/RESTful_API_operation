@@ -28,22 +28,24 @@ expressApp.post("/api/sendID", function(request, response){
     var sendData = {};
     var selectID = request.body.id;
 
-    fs.readFile(path.join(__dirname, "../json/"+"users.json"), "utf8", function(error, data){
-        if(error){
-            userData.error = error;
-        } else {
-            userData = JSON.parse(userData.user);
-            for(var i = 0; i < userData.length; i++)
-            {
-                if(userData[i].id == selectID)
-                {
-                    sendData = userData[i];
-                }
-            }
-        }
-    });
+    console.log(request.body)
 
-    response.json(JSON.parse(sendData));
+    // fs.readFile(path.join(__dirname, "../json/"+"users.json"), "utf8", function(error, data){
+    //     if(error){
+    //         userData.error = error;
+    //     } else {
+    //         userData = JSON.parse(userData.user);
+    //         for(var i = 0; i < userData.length; i++)
+    //         {
+    //             if(userData[i].id == selectID)
+    //             {
+    //                 sendData = userData[i];
+    //             }
+    //         }
+    //     }
+    // });
+
+    // response.json(JSON.parse(sendData));
 });
 
 //server setup
