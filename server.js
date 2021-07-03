@@ -7,6 +7,8 @@ const cors = require("cors");
 
 //set defaults
 expressApp.use(cors());
+expressApp.use(express.json);
+expressApp.use(express.urlencoded({extended: false}));
 expressApp.set('json spaces', 2);
 
 expressApp.get("/api/getUsers", function(request, response){
@@ -28,7 +30,7 @@ expressApp.post("/api/sendID", function(request, response){
     var sendData = {};
     var selectID = request.body.id;
 
-    console.log(request.body)
+    sendData.ID = request.body;
 
     // fs.readFile(path.join(__dirname, "../json/"+"users.json"), "utf8", function(error, data){
     //     if(error){
@@ -45,7 +47,7 @@ expressApp.post("/api/sendID", function(request, response){
     //     }
     // });
 
-    // response.json(JSON.parse(sendData));
+    response.json(JSON.parse(sendData));
 });
 
 //server setup
