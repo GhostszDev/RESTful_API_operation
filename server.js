@@ -45,8 +45,6 @@ expressApp.post("/api/sendID", function(request, response){
 });
 
 //server setup
-var server = expressApp.listen(80, function(){
-    var host = server.address().address;
-    var port = server.address().port;
-    console.log("REST API listening at http://%s:%s", host, port);
+expressApp.listen(process.env.PORT || 3000, function(){
+    console.log("Express server listening on port %d in %s mode", this.address().port, expressApp.settings.env);
 });
