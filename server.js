@@ -7,7 +7,7 @@ const cors = require("cors");
 
 //set defaults
 expressApp.use(cors());
-expressApp.use(express.json);
+expressApp.use(express.json());
 expressApp.use(express.urlencoded({extended: false}));
 expressApp.set('json spaces', 2);
 
@@ -30,24 +30,19 @@ expressApp.post("/api/sendID", function(request, response){
     var sendData = {};
     var selectID = request.body.id;
 
-    sendData.ID = request.body;
-
-    // fs.readFile(path.join(__dirname, "../json/"+"users.json"), "utf8", function(error, data){
-    //     if(error){
-    //         userData.error = error;
-    //     } else {
-    //         userData = JSON.parse(userData.user);
-    //         for(var i = 0; i < userData.length; i++)
-    //         {
-    //             if(userData[i].id == selectID)
-    //             {
-    //                 sendData = userData[i];
-    //             }
-    //         }
-    //     }
-    // });
-
-    response.json(JSON.parse(sendData));
+    fs.readFile(path.join(__dirname, "/scripts/json/users.json"), "utf8", function(error, data){
+        if(error){
+            userData.error = error;
+        } else {
+            let tempData = JSON.parse(data);
+            for(let i = 0; i < tempData.users.length; i++){
+                if(tempData.users[i].id == selectID){
+                    sendData = tempData.users[i];
+                }
+            }
+            response.send(sendData);
+        }
+    });
 });
 
 //server setup
